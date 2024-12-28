@@ -14,16 +14,14 @@ db.once('open',()=>{
 })
 
 const userSchema = new mongoose.Schema({
-    reg_no:String,
     name:String,
     email:String,
-    password:String
 })
 
 const Users = mongoose.model("info",userSchema);
 
 app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'login.html'))
+    res.sendFile(path.join(__dirname,'createaccount.html'))
 })
 
 app.post('/post',async (req,res)=>{
@@ -34,7 +32,7 @@ app.post('/post',async (req,res)=>{
     })
     await  user.save()
     console.log(user);
-    res.sendFile(path.join(__dirname,"raina.html"))
+    res.sendFile(path.join(__dirname,"index.html"))
 })
 
 
